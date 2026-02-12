@@ -59,15 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Si2-cl-zBH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0jr-GS-Muh"/>
-                            <constraint firstItem="Si2-cl-zBH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6M6-qh-Kmn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Si2-cl-zBH" secondAttribute="bottom" id="Ayd-SG-juZ"/>
-                            <constraint firstItem="Si2-cl-zBH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IrV-8Y-dNU"/>
-                            <constraint firstItem="Si2-cl-zBH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lxl-hJ-4lC"/>
                             <constraint firstItem="Si2-cl-zBH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Qmw-k4-d3c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Si2-cl-zBH" secondAttribute="trailing" id="e2l-ro-Cw1"/>
-                            <constraint firstItem="Si2-cl-zBH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="g7f-k2-w53"/>
-                            <constraint firstItem="Si2-cl-zBH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gc9-Ym-ai1"/>
                             <constraint firstItem="Si2-cl-zBH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="m1l-lD-oSP"/>
                             <constraint firstItem="Si2-cl-zBH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oAo-Mv-mym"/>
                             <constraint firstItem="Si2-cl-zBH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="v2I-3y-x1c"/>
@@ -79,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163" y="125"/>
+            <point key="canvasLocation" x="162.59541984732823" y="124.64788732394366"/>
         </scene>
     </scenes>
     <resources>
