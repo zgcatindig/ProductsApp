@@ -93,6 +93,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+// MARK: ProductTableViewCellDelegate
 extension ViewController: ProductTableViewDelegate {
     func showAddToCartSuccess(productName: String) {
         let alertController = UIAlertController(title: "Add to Cart Success!", message: "Added \(productName) to cart", preferredStyle: .alert)

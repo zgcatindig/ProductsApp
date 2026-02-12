@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  ProductsApp
 //
-//  Created by Zachary Allen Catindig on 2/12/26.
+//  Created by Aira Nicole Natividad on 2/12/26.
 //
 
 import UIKit

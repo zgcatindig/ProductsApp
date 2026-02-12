@@ -15,18 +15,19 @@ protocol ProductTableViewDelegate: AnyObject {
 class ProductTableViewCell: UITableViewCell {
     
     // MARK: Outlets
-    @IBOutlet weak var productNameLabel: UILabel!
-    @IBOutlet weak var productDescriptionLabel: UILabel!
+    @IBOutlet private weak var productNameLabel: UILabel!
+    @IBOutlet private weak var productDescriptionLabel: UILabel!
     
     // MARK: Properties
     weak var delegate: ProductTableViewDelegate?
     
-    var productNameText: String = "" {
+    private var productNameText: String = "" {
         didSet {
             productNameLabel.text = productNameText
         }
     }
-    var prodcutDescriptionText: String = "" {
+    
+    private var prodcutDescriptionText: String = "" {
         didSet {
             productDescriptionLabel.text = prodcutDescriptionText
         }
