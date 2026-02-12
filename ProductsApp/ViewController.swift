@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-//    var productModel = []
+    var productModel: [Product] = []
     
     // MARK: Lifecycles
     override func viewDidLoad() {
@@ -22,7 +22,18 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        fetch()
+        let urlString = "https://dummyjson.com/products"
+        fetchData(from: urlString) { [weak self] result in
+            switch result {
+            case .success(let products):
+                self?.productModel = products
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            case .failure(let err):
+                print("ERROR \(err)")
+            }
+        }
     }
     
     // MARK: Navigation
@@ -36,46 +47,43 @@ class ViewController: UIViewController {
     }
     
     // MARK: Functions
-    func fetch() {
-        let urlString = "https://dummyjson.com/products"
+    func fetchData(from urlString: String, completionHandler: @escaping (Result<[Product], Error>) -> Void) {
+        
         let url = URL(string: urlString)
         guard let unwrappedURL = url else { return }
         let urlRequest = URLRequest(url: unwrappedURL)
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let err = error {
-                print("ERROR: \(err)")
+                completionHandler(.failure(err))
             }
             
             guard let data = data else {
+                completionHandler(.failure(NSError(domain: "Error object is nil", code: -1)))
                 return
             }
             
             do {
                 let productModel = try JSONDecoder().decode(Products.self, from: data)
-                print(productModel)
+                completionHandler(.success(productModel.products))
             } catch {
-                print("Error decoding \(error)")
+                completionHandler(.failure(error))
             }
         }.resume()
-        
     }
 }
 
 // MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return productModel.count
-        return 1
+        return productModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as? ProductTableViewCell
-//        cell?.bind(productName: productModel[indexPath.row].productName, productDescription: productModel[indexPath.row].productDescription)
-//        return cell ?? UITableViewCell()
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as? ProductTableViewCell
+        cell?.bind(productName: productModel[indexPath.row].title, productDescription: productModel[indexPath.row].description)
+        return cell ?? UITableViewCell()
     }
-
 }
 
 extension ViewController: UITableViewDelegate {
