@@ -14,16 +14,10 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var shippingInformationLabel: UILabel!
     
-    var priceText: String = ""
-    var categoryText: String = ""
-    var shippingInformationText: String = ""
+    var productDetails: Product
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        priceLabel.text = priceText
-        categoryLabel.text = categoryText
-        shippingInformationLabel.text = shippingInformationText
         // Do any additional setup after loading the view.
     }
     
