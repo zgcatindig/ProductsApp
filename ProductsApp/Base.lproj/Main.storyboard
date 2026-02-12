@@ -52,6 +52,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="teU-6R-l1X" secondAttribute="bottom" constant="10" id="vg2-1k-Nc5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productDescriptionLabel" destination="9ZP-uI-1a2" id="QHR-6G-fB4"/>
+                                            <outlet property="productNameLabel" destination="lJP-5b-8uV" id="a2H-EQ-0PD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
