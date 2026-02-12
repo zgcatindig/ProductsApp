@@ -40,9 +40,10 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProductDetails" {
             let destinationVC = segue.destination as? ProductDetailsViewController
-            destinationVC?.priceText = "Price: 100"
-            destinationVC?.categoryText = "Phones"
-            destinationVC?.shippingInformationText = "Ships in 3 days"
+//            destinationVC?.priceText = "Price: 100"
+//            destinationVC?.categoryText = "Phones"
+//            destinationVC?.shippingInformationText = "Ships in 3 days"
+            destinationVC.productDetails = ?
         }
     }
     
@@ -88,6 +89,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productDetail = productModel[indexPath.row]
         performSegue(withIdentifier: "showProductDetails", sender: nil)
     }
 }
