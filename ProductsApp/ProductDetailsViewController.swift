@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductDetailsViewController: UIViewController {
 
@@ -19,7 +20,7 @@ class ProductDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(productDetails)
+        imageView.kf.setImage(with: URL(string: productDetails?.images.first ?? ""))
         priceLabel.text = "Price: \(productDetails?.price ?? 0)"
         categoryLabel.text = "Category: \(productDetails?.category.rawValue ?? "")"
         shippingInformationLabel.text = "Shipping Information: \(productDetails?.shippingInformation ?? "")"

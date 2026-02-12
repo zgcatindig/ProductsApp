@@ -80,13 +80,30 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as? ProductTableViewCell
         cell?.bind(productName: productModel[indexPath.row].title, productDescription: productModel[indexPath.row].description)
+        cell?.delegate = self
         return cell ?? UITableViewCell()
     }
 }
 
+// MARK: UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productDetail = productModel[indexPath.row]
         performSegue(withIdentifier: "showProductDetails", sender: productDetail)
+    }
+}
+
+extension ViewController: ProductTableViewDelegate {
+    func showAddToCartSuccess(productName: String) {
+        let alertController = UIAlertController(title: "Add to Cart Success!", message: "Added \(productName) to cart", preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Got it", style: .default) { [weak self] _ in
+            guard let self else { return }
+            dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(alertAction)
+        
+        self.present(alertController, animated: true)
     }
 }

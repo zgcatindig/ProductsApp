@@ -28,26 +28,39 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="teU-6R-l1X">
-                                                    <rect key="frame" x="16" y="10.000000000000004" width="361" height="51.333333333333343"/>
+                                                    <rect key="frame" x="16" y="10.000000000000004" width="238" height="51.333333333333343"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Product Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJP-5b-8uV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="30.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="238" height="30.666666666666668"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Product Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZP-uI-1a2">
-                                                            <rect key="frame" x="0.0" y="30.666666666666664" width="361" height="20.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="30.666666666666664" width="238" height="20.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buX-7q-nve">
+                                                    <rect key="frame" x="264" y="18.666666666666668" width="109" height="34.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="UKX-L6-5ef"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" title="Add to cart"/>
+                                                    <connections>
+                                                        <action selector="didTapButton:" destination="yB5-2u-xWz" eventType="touchUpInside" id="EEa-qB-dtB"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="teU-6R-l1X" firstAttribute="top" secondItem="6cA-yf-dzt" secondAttribute="top" constant="10" id="9YY-qT-NCV"/>
-                                                <constraint firstAttribute="trailing" secondItem="teU-6R-l1X" secondAttribute="trailing" constant="16" id="EJW-ph-HKF"/>
+                                                <constraint firstItem="buX-7q-nve" firstAttribute="centerY" secondItem="6cA-yf-dzt" secondAttribute="centerY" id="XaP-DN-XhZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="buX-7q-nve" secondAttribute="trailing" constant="20" id="Yfm-6r-dg1"/>
+                                                <constraint firstItem="buX-7q-nve" firstAttribute="leading" secondItem="teU-6R-l1X" secondAttribute="trailing" constant="10" id="gPj-Sq-RxT"/>
                                                 <constraint firstItem="teU-6R-l1X" firstAttribute="leading" secondItem="6cA-yf-dzt" secondAttribute="leading" constant="16" id="rfg-Wv-lFc"/>
                                                 <constraint firstAttribute="bottom" secondItem="teU-6R-l1X" secondAttribute="bottom" constant="10" id="vg2-1k-Nc5"/>
                                             </constraints>
