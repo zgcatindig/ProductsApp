@@ -7,22 +7,13 @@
 
 import UIKit
 
-struct Products {
-    let productName: String
-    let productDescription: String
-}
-
 class ViewController: UIViewController {
 
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    var productModel = [
-        Products(productName: "Apple Macbook Pro", productDescription: "Latest generation model"),
-        Products(productName: "Apple iPhone", productDescription: "Latest generation model"),
-        Products(productName: "Samsung Galaxy", productDescription: "Latest generation model"),
-    ]
+//    var productModel = []
     
     // MARK: Lifecycles
     override func viewDidLoad() {
@@ -30,26 +21,59 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        
+        fetch()
     }
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProductDetails" {
-            let _ = segue.destination as? ProductDetailsViewController
+            let destinationVC = segue.destination as? ProductDetailsViewController
+            destinationVC?.priceText = "Price: 100"
+            destinationVC?.categoryText = "Phones"
+            destinationVC?.shippingInformationText = "Ships in 3 days"
         }
+    }
+    
+    // MARK: Functions
+    func fetch() {
+        let urlString = "https://dummyjson.com/products"
+        let url = URL(string: urlString)
+        guard let unwrappedURL = url else { return }
+        let urlRequest = URLRequest(url: unwrappedURL)
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if let err = error {
+                print("ERROR: \(err)")
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let productModel = try JSONDecoder().decode(Products.self, from: data)
+                print(productModel)
+            } catch {
+                print("Error decoding \(error)")
+            }
+        }.resume()
+        
     }
 }
 
 // MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productModel.count
+//        return productModel.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as? ProductTableViewCell
-        cell?.bind(productName: productModel[indexPath.row].productName, productDescription: productModel[indexPath.row].productDescription)
-        return cell ?? UITableViewCell()
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as? ProductTableViewCell
+//        cell?.bind(productName: productModel[indexPath.row].productName, productDescription: productModel[indexPath.row].productDescription)
+//        return cell ?? UITableViewCell()
+        return UITableViewCell()
     }
 
 }
