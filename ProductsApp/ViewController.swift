@@ -2,14 +2,25 @@
 //  ViewController.swift
 //  ProductsApp
 //
-//  Created by Zachary Allen Catindig on 2/12/26.
+//  Created by Aira Nicole Natividad on 2/12/26.
 //
 
 import UIKit
 
+struct Products {
+    let productName: String
+    let productDescription: String
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var productModel = [
+        Products(productName: "Apple Macbook Pro", productDescription: "Latest generation model"),
+        Products(productName: "Apple iPhone", productDescription: "Latest generation model"),
+        Products(productName: "Samsung Galaxy", productDescription: "Latest generation model"),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +35,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return productModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
