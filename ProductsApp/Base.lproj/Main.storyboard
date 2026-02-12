@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" id="QBa-L9-27U"/>
                     <connections>
                         <outlet property="tableView" destination="Si2-cl-zBH" id="LWV-FG-paE"/>
-                        <segue destination="LAJ-IH-Y7A" kind="show" identifier="showProductDetails" id="p8N-Yp-ILJ"/>
+                        <segue destination="LAJ-IH-Y7A" kind="show" identifier="showProductDetails" id="f0i-Zh-Mtc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,6 +86,12 @@
                     <view key="view" contentMode="scaleToFill" id="ux7-om-LMT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6E9-hw-D3X">
+                                <rect key="frame" x="76" y="172" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4s8-rO-uCH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

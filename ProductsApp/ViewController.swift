@@ -14,22 +14,33 @@ struct Products {
 
 class ViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Properties
     var productModel = [
         Products(productName: "Apple Macbook Pro", productDescription: "Latest generation model"),
         Products(productName: "Apple iPhone", productDescription: "Latest generation model"),
         Products(productName: "Samsung Galaxy", productDescription: "Latest generation model"),
     ]
     
+    // MARK: Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showProductDetails" {
+            let _ = segue.destination as? ProductDetailsViewController
+        }
+    }
 }
 
+// MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productModel.count
@@ -45,6 +56,6 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(productModel[indexPath.row].productName)
+        performSegue(withIdentifier: "showProductDetails", sender: nil)
     }
 }
