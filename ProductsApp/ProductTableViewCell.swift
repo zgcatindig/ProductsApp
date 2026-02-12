@@ -7,11 +7,30 @@
 
 import UIKit
 
+protocol ProductTableViewCellDelegate: AnyObject {
+    func showAddToCartSuccess(productName: String)
+    
+}
+
 class ProductTableViewCell: UITableViewCell {
     
     // MARK: Outlets
-    @IBOutlet weak var productNameLabel: UILabel!
-    @IBOutlet weak var productDescriptionLabel: UILabel!
+    @IBOutlet private weak var productNameLabel: UILabel!
+    @IBOutlet private weak var productDescriptionLabel: UILabel!
+    
+    // MARK: Properties
+    weak var delegate: ProductTableViewCellDelegate?
+    
+    private var productNameText: String = "" {
+        didSet {
+            productNameLabel.text = productNameText
+        }
+    }
+    private var productDescriptionText: String = "" {
+        didSet {
+            productDescriptionLabel.text = productDescriptionText
+        }
+    }
     
     // MARK: Initializations
     override func awakeFromNib() {
@@ -21,7 +40,13 @@ class ProductTableViewCell: UITableViewCell {
     
     // MARK: Functions
     func bind(productName: String, productDescription: String) {
-        productNameLabel.text = productName
-        productDescriptionLabel.text = productDescription
+        productNameText = productName
+        productDescriptionText = productDescription
     }
+    
+    @IBAction func didTapButton(_ sender: Any) {
+        delegate?.showAddToCartSuccess(productName: productNameLabel.text ?? "")
+        
+    }
+    
 }
