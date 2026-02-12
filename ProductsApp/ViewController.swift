@@ -26,11 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        
-        
+        tableView.delegate = self
     }
-
-
 }
 
 extension ViewController: UITableViewDataSource {
@@ -43,8 +40,11 @@ extension ViewController: UITableViewDataSource {
         cell?.bind(productName: productModel[indexPath.row].productName, productDescription: productModel[indexPath.row].productDescription)
         return cell ?? UITableViewCell()
     }
-    
-    
-    
 
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(productModel[indexPath.row].productName)
+    }
 }

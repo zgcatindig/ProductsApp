@@ -72,11 +72,28 @@
                     <navigationItem key="navigationItem" id="QBa-L9-27U"/>
                     <connections>
                         <outlet property="tableView" destination="Si2-cl-zBH" id="LWV-FG-paE"/>
+                        <segue destination="LAJ-IH-Y7A" kind="show" identifier="showProductDetails" id="p8N-Yp-ILJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="474" y="125"/>
+        </scene>
+        <!--Product Details View Controller-->
+        <scene sceneID="KZL-Zh-kVR">
+            <objects>
+                <viewController id="LAJ-IH-Y7A" customClass="ProductDetailsViewController" customModule="ProductsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ux7-om-LMT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4s8-rO-uCH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C2H-ub-R88"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxx-nO-xg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1A0-Oe-p7e">
